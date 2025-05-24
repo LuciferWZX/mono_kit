@@ -1,0 +1,38 @@
+{
+  "name": "mono_kit",
+  "version": "1.0.0",
+  "description": "A collection of frontend packages managed in a monorepo structure using pnpm workspace",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "dev:mono_kit_web": "pnpm --filter mono_kit_web dev",
+    "clean": "gulp --gulpfile scripts/clean-modules.js clean:all"
+  },
+  "keywords": [
+    "monorepo",
+    "frontend",
+    "pnpm",
+    "workspace"
+  ],
+  "author": "Mono Kit Team",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.13.2",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "del": "^8.0.0",
+    "eslint": "^9.27.0",
+    "gulp": "^5.0.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

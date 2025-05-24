@@ -1,0 +1,10 @@
+{
+  "name": "@mono-kit/eslint-config",
+  "version": "1.0.0",
+  "description": "项目的ESLint配置包，用于统一代码风格和质量检查规则",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./base": "./eslint.config.mjs"
+  }
+}
