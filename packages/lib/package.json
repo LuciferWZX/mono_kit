@@ -1,0 +1,27 @@
+{
+  "name": "@mono-kit/lib",
+  "version": "1.0.0",
+  "description": "MonoKit 工具包，提供常用的工具函数和方法",
+  "keywords": [
+    "toolkit",
+    "utils",
+    "monorepo",
+    "typescript",
+    "javascript"
+  ],
+  "author": "wzx",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@mono-kit/typescript-config": "workspace:*",
+    "@mono-kit/eslint-config": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./utils/*": "./src/utils/*.ts"
+  }
+}

@@ -17,6 +17,7 @@
     "@vitejs/plugin-react": "^4.4.1",
     "vite": "^6.3.5",
     "@mono-kit/typescript-config": "workspace:*",
-    "@mono-kit/eslint-config": "workspace:*"
+    "@mono-kit/eslint-config": "workspace:*",
+    "@mono-kit/lib": "workspace:*"
   }
 }

@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { isEmpty } from '@mono-kit/lib'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    console.warn(isEmpty({ }))
+  }, [])
   return (
     <>
       <div>
