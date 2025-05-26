@@ -1,0 +1,11 @@
+{
+  "extends": "@mono-kit/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@mono-kit/lib/*": ["src/*"],
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
+}
