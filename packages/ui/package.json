@@ -1,9 +1,16 @@
 {
   "name": "@mono-kit/ui",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.11.0",
   "author": "wzx",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0",
+  "exports": {
+    "./base/*": "./src/base/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./styles/*": "./src/styles/*",
+    "./hooks/*": "./src/hooks/*",
+    "./components": "./src/components/index.ts"
+  },
   "dependencies": {
     "@mono-kit/eslint-config": "workspace:*",
     "@mono-kit/lib": "workspace:*",
@@ -50,11 +57,5 @@
     "tailwind-merge": "^3.1.0",
     "use-mask-input": "^3.4.2",
     "zod": "^3.24.2"
-  },
-  "exports": {
-    "./base/*": "./src/base/*.tsx",
-    "./lib/*": "./src/lib/*.ts",
-    "./styles/*": "./src/styles/*",
-    "./hooks/*": "./src/hooks/*"
   }
 }

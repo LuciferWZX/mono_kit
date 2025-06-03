@@ -1,6 +1,10 @@
 // 获取对象的原型字符串表示
 const opt = Object.prototype.toString
 
+export function isString(obj: any): obj is string {
+  return opt.call(obj) === '[object String]'
+}
+
 // 判断是否为 File 类型
 export function isFile(obj: any): obj is File {
   return opt.call(obj) === '[object File]'

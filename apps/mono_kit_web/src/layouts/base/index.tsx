@@ -1,3 +1,4 @@
+import { ScrollArea } from '@mono-kit/ui/base/scroll-area'
 import { SidebarInset, SidebarProvider } from '@mono-kit/ui/base/sidebar'
 import { Outlet } from 'react-router'
 import AppSidebar from '@/layouts/base/app-sidebar.tsx'
@@ -9,7 +10,9 @@ function BaseLayout() {
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>
-          <Outlet />
+          <ScrollArea className="overflow-auto ">
+            <Outlet />
+          </ScrollArea>
         </SidebarInset>
 
       </SidebarProvider>
