@@ -9,7 +9,8 @@
     "./lib/*": "./src/lib/*.ts",
     "./styles/*": "./src/styles/*",
     "./hooks/*": "./src/hooks/*",
-    "./components": "./src/components/index.ts"
+    "./components": "./src/components/index.ts",
+    "./int-ui": "./src/int-ui/index.ts"
   },
   "dependencies": {
     "@mono-kit/eslint-config": "workspace:*",
