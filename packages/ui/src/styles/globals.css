@@ -8,6 +8,8 @@
 @theme inline {
   --color-grey1: var(--gray1);
   --color-grey2: var(--gray2);
+  --color-grey5: var(--gray5);
+  --color-grey6: var(--gray6);
   --color-grey7: var(--gray7);
   --color-grey8: var(--gray8);
   --color-grey9: var(--gray9);
@@ -23,6 +25,7 @@
   --color-blue6: var(--blue6);
   --color-blue7: var(--blue7);
   --color-blue8: var(--blue8);
+  --color-blue9: var(--blue9);
 
 
 

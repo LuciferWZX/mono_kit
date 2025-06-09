@@ -4,7 +4,7 @@ import { cn } from '@mono-kit/ui/lib/utils.ts'
 import { Slot } from '@radix-ui/react-slot'
 import { cva } from 'class-variance-authority'
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   'cursor-pointer border box-border rounded  min-w-[4.5rem] outline-primary focus-visible:outline-2 -outline-offset-1 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:border-muted dark:disabled:bg-muted dark:disabled:text-muted-foreground dark:disabled:border-muted',
   {
     variants: {
@@ -23,7 +23,7 @@ const buttonVariants = cva(
     },
   },
 )
-interface ButtonProps extends ComponentProps<'button'>, VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends ComponentProps<'button'>, VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 export function Button(props: ButtonProps) {
