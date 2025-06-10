@@ -1,10 +1,13 @@
-import type { VariantProps } from 'class-variance-authority'
+import type { DropdownMenuOptions } from '@mono-kit/ui/components/dropdown-menu'
 
+import type { VariantProps } from 'class-variance-authority'
 import type { ComponentProps } from 'react'
+import DropdownMenu from '@mono-kit/ui/components/dropdown-menu'
 import { buttonVariants } from '@mono-kit/ui/int-ui'
 import { cn } from '@mono-kit/ui/lib/utils.ts'
 import { cva } from 'class-variance-authority'
 import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
 
 export const splitButtonVariants = cva(
   'cursor-pointer border box-border rounded  min-w-[4.5rem] outline-primary focus-visible:outline-2 -outline-offset-1 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:border-muted dark:disabled:bg-muted dark:disabled:text-muted-foreground dark:disabled:border-muted',
@@ -37,22 +40,44 @@ const splitButtonIconVariants = cva('border-l pl-1 p-[0.3125rem] inline-block te
   },
 })
 interface SplitButtonProps extends ComponentProps<'button'>, VariantProps<typeof splitButtonVariants> {
-
+  options?: DropdownMenuOptions[]
+  open?: boolean
+  onOpenChange?: (open?: boolean) => void
 }
 export function SplitButton(props: SplitButtonProps) {
-  const { variant, size, children, className, ...restProps } = props
+  const { variant, size, children, className, options = [], open, onOpenChange, ...restProps } = props
+  const [_open, setOpen] = useState<boolean>(false)
   return (
-    <button
-      data-slot="button"
-      className={cn('group', splitButtonVariants({ variant, size, className }), 'flex items-center')}
-      {...restProps}
+    <DropdownMenu
+      asChild={true}
+      open={open ?? _open}
+      options={options}
+      onOpenChange={(__open) => {
+        if (!__open) {
+          setOpen(false)
+        }
+        onOpenChange?.(__open)
+      }}
     >
-      <span className={cn('', buttonVariants({ variant, size }), 'pointer-events-none bg-transparent border-none group-disabled:text-grey8 group-disabled:dark:text-grey8')}>
-        {children}
-      </span>
-      <span className={cn('', splitButtonIconVariants({ variant }), 'group-disabled:text-grey8')}>
-        <ChevronDown size={16} />
-      </span>
-    </button>
+      <button
+        data-slot="button"
+        className={cn('group', splitButtonVariants({ variant, size, className }), 'flex items-center')}
+        onKeyDown={(event) => {
+          if (event.key === 'ArrowDown') {
+            event.preventDefault()
+            setOpen(true)
+            onOpenChange?.(true)
+          }
+        }}
+        {...restProps}
+      >
+        <span className={cn('', buttonVariants({ variant, size }), 'pointer-events-none bg-transparent border-none group-disabled:text-grey8 group-disabled:dark:text-grey8')}>
+          {children}
+        </span>
+        <span onClick={() => { setOpen(true) }} className={cn('', splitButtonIconVariants({ variant }), 'group-disabled:text-grey8')}>
+          <ChevronDown size={16} />
+        </span>
+      </button>
+    </DropdownMenu>
   )
 }

@@ -18,7 +18,25 @@ function ChatPage() {
       </div>
       <div className="bg-card rounded border-border border flex flex-col gap-2 p-6 mt-10">
         <div className="flex gap-2">
-          <SplitButton>
+          <SplitButton
+
+            options={
+              [
+                { value: 'force_push', label: '强制推送' },
+                { value: 'commit', label: '提交' },
+                { type: 'divider' },
+                {
+                  type: 'group',
+                  value: 'setting',
+                  label: '设置',
+                  children: [
+                    { value: 'language', label: '多语言' },
+                    { value: 'theme', label: '主题' },
+                  ],
+                },
+              ]
+            }
+          >
             Button
           </SplitButton>
           <SplitButton disabled={true}>

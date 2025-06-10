@@ -8,6 +8,7 @@
 @theme inline {
   --color-grey1: var(--gray1);
   --color-grey2: var(--gray2);
+  --color-grey3: var(--gray3);
   --color-grey5: var(--gray5);
   --color-grey6: var(--gray6);
   --color-grey7: var(--gray7);
@@ -26,6 +27,7 @@
   --color-blue7: var(--blue7);
   --color-blue8: var(--blue8);
   --color-blue9: var(--blue9);
+  --color-blue11: var(--blue11);
 
 
 
@@ -246,7 +248,9 @@
   --sidebar-border: oklch(0.274 0.006 286.033); /* --color-zinc-800 */
   --sidebar-ring: oklch(0.442 0.017 285.786); /* --color-zinc-600 */
 }
-
+.ui_default{
+  @apply text-[0.8125rem] leading-4 font-medium;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -264,6 +268,7 @@
   p {
     @apply text-sm leading-4.5 font-medium;
   }
+
 }
 
 /* originui css below */
