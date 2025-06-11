@@ -1,5 +1,5 @@
 import { useTheme } from '@mono-kit/ui/components'
-import { Button, SplitButton } from '@mono-kit/ui/int-ui'
+import { Button, InputField, SplitButton } from '@mono-kit/ui/int-ui'
 
 function ChatPage() {
   const { toggleTheme } = useTheme()
@@ -50,6 +50,14 @@ function ChatPage() {
           <SplitButton variant="primary" disabled={true}>
             disabled primary Button
           </SplitButton>
+        </div>
+      </div>
+      <div className="bg-card rounded border-border border flex flex-col gap-2 p-6 mt-10">
+        <div className="flex items-center gap-2">
+          <InputField />
+          <InputField aria-invalid />
+          <InputField value="Text" disabled={true} />
+          <InputField placeholder="请输入" disabled={true} aria-invalid />
         </div>
       </div>
     </div>

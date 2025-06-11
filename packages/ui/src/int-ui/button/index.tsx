@@ -27,12 +27,13 @@ export interface ButtonProps extends ComponentProps<'button'>, VariantProps<type
   asChild?: boolean
 }
 export function Button(props: ButtonProps) {
-  const { className, asChild = false, variant, size, ...restProps } = props
+  const { className, asChild = false, variant, size, type = 'button', ...restProps } = props
   const Comp = asChild ? Slot : 'button'
   return (
     <Comp
       data-slot="button"
       className={cn('', buttonVariants({ variant, size, className }))}
+      type={type}
       {...restProps}
     />
   )
