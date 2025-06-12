@@ -34,11 +34,11 @@ function DropdownMenu(props: DropdownMenuProps) {
         return (
           <DropdownMenuGroup key={option.value}>
             <DropdownMenuSub>
-              <DropdownMenuSubTrigger className={cn('ui_default py-1 px-2 focus:bg-blue11 dark:focus:bg-blue2')}>
+              <DropdownMenuSubTrigger className={cn('ui_default py-1 px-2 focus:bg-blue11 dark:focus:bg-blue2 data-[state=open]:bg-blue11 dark:data-[state=open]:bg-blue2')}>
                 {option.render ? option.render(option) : (option.label ?? option.value)}
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
+                <DropdownMenuSubContent sideOffset={12} className={cn('bg-grey14 dark:bg-grey2')}>
                   {renderOptions(option.children)}
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>
@@ -58,7 +58,7 @@ function DropdownMenu(props: DropdownMenuProps) {
       <DropdownMenuTrigger asChild={asChild}>
         {children}
       </DropdownMenuTrigger>
-      <DropdownMenuContent {...contentProps} className="border-grey9 dark:border-grey3 py-2 px-3">
+      <DropdownMenuContent {...contentProps} className="border-grey9 dark:border-grey3 bg-grey14 dark:bg-grey2 py-2 px-3">
         {options && renderOptions(options)}
       </DropdownMenuContent>
     </BaseDropdownMenu>

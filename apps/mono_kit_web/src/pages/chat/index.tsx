@@ -1,4 +1,4 @@
-import { useTheme } from '@mono-kit/ui/components'
+import { FolderCog, useTheme } from '@mono-kit/ui/components'
 import { Button, InputField, SplitButton } from '@mono-kit/ui/int-ui'
 
 function ChatPage() {
@@ -19,7 +19,6 @@ function ChatPage() {
       <div className="bg-card rounded border-border border flex flex-col gap-2 p-6 mt-10">
         <div className="flex gap-2">
           <SplitButton
-
             options={
               [
                 { value: 'force_push', label: '强制推送' },
@@ -54,8 +53,17 @@ function ChatPage() {
       </div>
       <div className="bg-card rounded border-border border flex flex-col gap-2 p-6 mt-10">
         <div className="flex items-center gap-2">
-          <InputField />
-          <InputField aria-invalid />
+          <InputField
+            actions={
+              [
+                { key: 'file', icon: <FolderCog />, onClick: (event) => {
+                  event.stopPropagation()
+                  console.warn('点击了icon')
+                } },
+              ]
+            }
+          />
+          <InputField placeholder="mniha" aria-invalid />
           <InputField value="Text" disabled={true} />
           <InputField placeholder="请输入" disabled={true} aria-invalid />
         </div>
