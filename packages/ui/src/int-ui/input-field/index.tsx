@@ -20,10 +20,13 @@ export interface InputFieldAction {
   className?: string
 }
 interface InputFieldProps extends ComponentProps<'input'>, VariantProps<typeof inputVariants> {
-  actions?: InputFieldAction[]
+  actions?: InputFieldAction[] | ReactNode
+  classes?: {
+    input?: string
+  }
 }
-export function InputField(props: InputFieldProps) {
-  const { className, disabled, actions, ...restProps } = props
+export function InputField(props: InputFieldProps) { 
+  const { className, disabled, actions, classes, ...restProps } = props
   const ariaInvalid = disabled === true ? undefined : props['aria-invalid']
   return (
     <div
@@ -38,22 +41,27 @@ export function InputField(props: InputFieldProps) {
       <input
         disabled={disabled}
         data-slot="input"
-        className={cn('outline-none')}
+        className={cn('outline-none', classes?.input)}
         {...restProps}
         aria-invalid={ariaInvalid}
       />
-      {actions?.map((action) => {
-        return (
-          <ToolbarButton key={action.key} disabled={disabled || action.disabled} size="slim" tabIndex={-1} onClick={action.onClick}>
-            {isValidElement(action.icon)
-              ? cloneElement(action.icon, {
-                  className: cn((action.icon.props as any).className, 'size-3.5'),
-                } as any)
-              : action.icon}
-          </ToolbarButton>
-        )
-      })}
-
+      {Array.isArray(actions)
+        ? (
+            actions.map((action) => {
+              return (
+                <ToolbarButton key={action.key} disabled={disabled || action.disabled} size="slim" tabIndex={-1} onClick={action.onClick}>
+                  {isValidElement(action.icon)
+                    ? cloneElement(action.icon, {
+                        className: cn((action.icon.props as any).className, 'size-3.5'),
+                      } as any)
+                    : action.icon}
+                </ToolbarButton>
+              )
+            })
+          )
+        : (
+            actions
+          )}
     </div>
   )
 }

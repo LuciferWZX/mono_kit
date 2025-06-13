@@ -1,10 +1,11 @@
 import { FolderCog, useTheme } from '@mono-kit/ui/components'
-import { Button, InputField, SplitButton } from '@mono-kit/ui/int-ui'
+import { Button, ComboBox, InputField, SplitButton } from '@mono-kit/ui/int-ui'
 
 function ChatPage() {
   const { toggleTheme } = useTheme()
   return (
     <div className="overflow-auto p-20 relative">
+      <div>fff</div>
       <div className="bg-card rounded border-border border p-6">
         <Button className="absolute right-4 top-4" onClick={toggleTheme}>切换主题</Button>
         <Button>Button</Button>
@@ -66,6 +67,11 @@ function ChatPage() {
           <InputField placeholder="mniha" aria-invalid />
           <InputField value="Text" disabled={true} />
           <InputField placeholder="请输入" disabled={true} aria-invalid />
+        </div>
+      </div>
+      <div className="bg-card rounded border-border border flex flex-col gap-2 p-6 mt-10">
+        <div className="flex items-center gap-2">
+          <ComboBox />
         </div>
       </div>
     </div>

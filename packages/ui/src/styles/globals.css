@@ -267,7 +267,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-grey1 text-[0.8125rem] leading-4 font-medium;
+    @apply bg-background text-grey1 dark:text-grey12 text-[0.8125rem] leading-4 font-medium;
 
   }
   h1{

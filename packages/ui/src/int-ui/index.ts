@@ -1,4 +1,5 @@
 export * from './button'
 export * from './button/SplitButton.tsx'
 export * from './button/ToolbarButton.tsx'
+export * from './combo-box'
 export * from './input-field'
