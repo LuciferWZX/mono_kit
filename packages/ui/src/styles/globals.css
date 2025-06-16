@@ -6,19 +6,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-grey1: var(--gray1);
-  --color-grey2: var(--gray2);
-  --color-grey3: var(--gray3);
-  --color-grey5: var(--gray5);
-  --color-grey6: var(--gray6);
-  --color-grey7: var(--gray7);
-  --color-grey8: var(--gray8);
-  --color-grey9: var(--gray9);
-  --color-grey12: var(--gray12);
-  --color-grey11: var(--gray11);
-  --color-grey13: var(--gray13);
-  --color-grey14: var(--gray14);
+  --color-gray1: var(--gray1);
+  --color-gray2: var(--gray2);
+  --color-gray3: var(--gray3);
+  --color-gray5: var(--gray5);
+  --color-gray6: var(--gray6);
+  --color-gray7: var(--gray7);
+  --color-gray8: var(--gray8);
+  --color-gray9: var(--gray9);
+  --color-gray12: var(--gray12);
+  --color-gray11: var(--gray11);
+  --color-gray13: var(--gray13);
+  --color-gray14: var(--gray14);
 
+
+  --color-blue1: var(--blue1);
   --color-blue2: var(--blue2);
   --color-blue3: var(--blue3);
   --color-blue4: var(--blue4);
@@ -27,7 +29,10 @@
   --color-blue7: var(--blue7);
   --color-blue8: var(--blue8);
   --color-blue9: var(--blue9);
+  --color-blue10: var(--blue10);
   --color-blue11: var(--blue11);
+  --color-blue12: var(--blue12);
+  --color-blue13: var(--blue13);
 
   --color-red1: var(--red1);
   --color-red2: var(--red2);
@@ -267,7 +272,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-grey1 dark:text-grey12 text-[0.8125rem] leading-4 font-medium;
+    @apply bg-background text-gray1 dark:text-gray12 text-[0.8125rem] leading-4 font-medium;
 
   }
   h1{

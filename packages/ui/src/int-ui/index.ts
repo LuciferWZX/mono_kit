@@ -1,4 +1,6 @@
+export * from './banner'
 export * from './button'
+export * from './button/MiniButton.tsx'
 export * from './button/SplitButton.tsx'
 export * from './button/ToolbarButton.tsx'
 export * from './combo-box'

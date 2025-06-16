@@ -1,5 +1,5 @@
 import { FolderCog, useTheme } from '@mono-kit/ui/components'
-import { Button, ComboBox, InputField, SplitButton } from '@mono-kit/ui/int-ui'
+import { Banner, Button, ComboBox, InputField, SplitButton } from '@mono-kit/ui/int-ui'
 
 // 生成20条options数据，包含分组
 const _mockOptions = [
@@ -49,8 +49,12 @@ function ChatPage() {
   const { toggleTheme } = useTheme()
   return (
     <div className="overflow-auto p-20 relative">
-      <div>fff</div>
-      <div className="bg-card rounded border-border border p-6">
+      <div className="bg-card rounded border-border border flex flex-col gap-2 p-6">
+        <div className="flex items-center gap-2">
+          <Banner />
+        </div>
+      </div>
+      <div className="bg-card rounded border-border border p-6 mt-10">
         <Button className="absolute right-4 top-4" onClick={toggleTheme}>切换主题</Button>
         <Button>Button</Button>
         <Button className="mx-2" disabled={true}>disabled Button</Button>
@@ -118,6 +122,7 @@ function ChatPage() {
           <ComboBox placeholder="你好" options={_mockOptions} />
         </div>
       </div>
+
     </div>
   )
 }
