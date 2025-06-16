@@ -1,5 +1,5 @@
 import type { VariantProps } from 'class-variance-authority'
-import type { ComponentProps, ReactNode } from 'react'
+import type { ComponentProps, CSSProperties, ReactNode } from 'react'
 import { ToolbarButton } from '@mono-kit/ui/int-ui'
 import { cn } from '@mono-kit/ui/lib/utils.ts'
 import { cva } from 'class-variance-authority'
@@ -21,27 +21,32 @@ export interface InputFieldAction {
 }
 interface InputFieldProps extends ComponentProps<'input'>, VariantProps<typeof inputVariants> {
   actions?: InputFieldAction[] | ReactNode
+  styles?: {
+    input?: CSSProperties
+    box?: CSSProperties
+  }
   classes?: {
     input?: string
   }
 }
-export function InputField(props: InputFieldProps) { 
-  const { className, disabled, actions, classes, ...restProps } = props
+export function InputField(props: InputFieldProps) {
+  const { className, disabled, actions, styles, classes, ...restProps } = props
   const ariaInvalid = disabled === true ? undefined : props['aria-invalid']
   return (
     <div
       className={cn(
-        '',
         inputVariants(),
         'disabled:border-grey11 disabled:bg-grey13 disabled:text-grey8 dark:disabled:border-grey5 disabled:border-1 dark:disabled:text-grey7',
         className,
       )}
       aria-invalid={ariaInvalid}
+      style={styles?.box}
     >
       <input
         disabled={disabled}
         data-slot="input"
         className={cn('outline-none', classes?.input)}
+        style={styles?.input}
         {...restProps}
         aria-invalid={ariaInvalid}
       />
