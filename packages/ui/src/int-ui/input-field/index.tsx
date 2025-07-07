@@ -1,7 +1,7 @@
 import type { VariantProps } from 'class-variance-authority'
 import type { ComponentProps, CSSProperties, ReactNode } from 'react'
 import { ToolbarButton } from '@mono-kit/ui/int-ui'
-import { cn } from '@mono-kit/ui/lib/utils.ts'
+import { cn } from '@mono-kit/ui/lib/utils'
 import { cva } from 'class-variance-authority'
 import { cloneElement, isValidElement } from 'react'
 

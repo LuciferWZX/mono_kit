@@ -1,7 +1,7 @@
 import type { Button } from '@mono-kit/ui/base/button'
 import { buttonVariants } from '@mono-kit/ui/base/button'
 
-import { cn } from '@mono-kit/ui/lib/utils.ts'
+import { cn } from '@mono-kit/ui/lib/utils'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,

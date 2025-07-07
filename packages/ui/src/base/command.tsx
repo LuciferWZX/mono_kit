@@ -1,13 +1,13 @@
 'use client'
 
-import { cn } from '@mono-kit/ui/lib/utils'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@mono-kit/ui/ui/dialog'
+} from '@mono-kit/ui/base/dialog'
+import { cn } from '@mono-kit/ui/lib/utils'
 import { Command as CommandPrimitive } from 'cmdk'
 
 import { SearchIcon } from 'lucide-react'

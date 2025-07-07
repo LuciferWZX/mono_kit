@@ -11,8 +11,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@mono-kit/ui/base/dropdown-menu.tsx'
-import { cn, isDivider, isGroup } from '@mono-kit/ui/lib/utils.ts'
+} from '@mono-kit/ui/base/dropdown-menu'
+import { cn, isDivider, isGroup } from '@mono-kit/ui/lib/utils'
 import { useCallback } from 'react'
 
 export type DropdownMenuOptions = OptionType

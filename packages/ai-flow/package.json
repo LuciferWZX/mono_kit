@@ -1,0 +1,29 @@
+{
+  "name": "@mono-kit/ai-flow",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.11.0",
+  "description": "MonoKit ai-flow",
+  "author": "wzx",
+  "license": "ISC",
+  "keywords": [
+    "ai",
+    "workflow"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.8.1",
+    "motion": "^12.19.2",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@mono-kit/eslint-config": "workspace:*",
+    "@mono-kit/lib": "workspace:*",
+    "@mono-kit/typescript-config": "workspace:*",
+    "@mono-kit/ui": "workspace:*",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.7"
+  }
+}

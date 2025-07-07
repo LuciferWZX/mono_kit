@@ -1,8 +1,8 @@
 'use client'
 
 import type { VariantProps } from 'class-variance-authority'
+import { toggleVariants } from '@mono-kit/ui/base/toggle'
 import { cn } from '@mono-kit/ui/lib/utils'
-import { toggleVariants } from '@mono-kit/ui/ui/toggle'
 
 import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'
 import * as React from 'react'

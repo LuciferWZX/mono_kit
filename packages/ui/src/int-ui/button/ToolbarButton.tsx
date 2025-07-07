@@ -1,6 +1,6 @@
 import type { VariantProps } from 'class-variance-authority'
 import type { ComponentProps } from 'react'
-import { cn } from '@mono-kit/ui/lib/utils.ts'
+import { cn } from '@mono-kit/ui/lib/utils'
 import { Slot } from '@radix-ui/react-slot'
 import { cva } from 'class-variance-authority'
 

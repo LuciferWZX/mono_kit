@@ -1,12 +1,12 @@
 'use client'
 
-import { cn } from '@mono-kit/ui/lib/utils'
 import {
   Command,
   CommandGroup,
   CommandItem,
   CommandList,
-} from '@mono-kit/ui/ui/command'
+} from '@mono-kit/ui/base/command'
+import { cn } from '@mono-kit/ui/lib/utils'
 import { Command as CommandPrimitive, useCommandState } from 'cmdk'
 import { XIcon } from 'lucide-react'
 

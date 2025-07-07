@@ -6,11 +6,13 @@
   "license": "ISC",
   "exports": {
     "./base/*": "./src/base/*.tsx",
+    "./icon/*": "./src/icon/*.ts",
     "./lib/*": "./src/lib/*.ts",
     "./styles/*": "./src/styles/*",
     "./hooks/*": "./src/hooks/*",
     "./components": "./src/components/index.ts",
-    "./int-ui": "./src/int-ui/index.ts"
+    "./int-ui": "./src/int-ui/index.ts",
+    "./types": "./src/types/index.ts"
   },
   "dependencies": {
     "@mono-kit/eslint-config": "workspace:*",

@@ -1,6 +1,5 @@
 'use client'
 
-import { useToast } from '@mono-kit/ui/hooks/use-toast'
 import {
   Toast,
   ToastClose,
@@ -8,7 +7,8 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from '@mono-kit/ui/ui/toast'
+} from '@mono-kit/ui/base/toast'
+import { useToast } from '@mono-kit/ui/hooks/use-toast'
 
 export function Toaster() {
   const { toasts } = useToast()

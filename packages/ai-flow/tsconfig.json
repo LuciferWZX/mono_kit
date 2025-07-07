@@ -1,0 +1,11 @@
+{
+  "extends": "@mono-kit/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@mono-kit/ai-flow/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "types.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

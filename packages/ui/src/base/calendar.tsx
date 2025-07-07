@@ -1,7 +1,7 @@
 'use client'
 
+import { buttonVariants } from '@mono-kit/ui/base/button'
 import { cn } from '@mono-kit/ui/lib/utils'
-import { buttonVariants } from '@mono-kit/ui/ui/button'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
 import * as React from 'react'
