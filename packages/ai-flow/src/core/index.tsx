@@ -1,9 +1,12 @@
 import { cn } from '@mono-kit/ui/lib/utils'
 import { ReactFlow, ReactFlowProvider } from '@xyflow/react'
+import { useDrop } from '../hooks/useDrop'
 import { useAIFlowStore } from '../store/useAIFlowStore'
 import { BackgroundView } from './config-view/BackgroundView'
 import { ControlsView } from './config-view/ControlsView'
+import MiniMapView from './config-view/MiniMapView'
 import { FlowHeader } from './flow-header'
+import NODE_TYPES from './nodes'
 import { VariablePanel } from './variable-view/VariablePanel'
 import '@xyflow/react/dist/style.css'
 import '@mono-kit/ui/styles/globals.css'
@@ -20,29 +23,51 @@ interface AIFlowProps {
 function AIFlow(props: AIFlowProps) {
   const { className, theme, classes } = props
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useAIFlowStore()
+  const { handleDrop, handleDragOver } = useDrop()
 
   return (
+    <div className={cn('flex flex-col size-full', className)}>
 
-    <ReactFlowProvider>
-      <div className={cn('flex flex-col size-full', className)}>
-        <FlowHeader className={classes?.header} />
+      <FlowHeader className={classes?.header} />
+      <div className="flex-1 relative">
+        <VariablePanel />
         <ReactFlow
-          className={cn('flex-1', classes?.container)}
+          nodeTypes={NODE_TYPES}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          className={cn('', classes?.container)}
           colorMode={theme}
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
-          fitView
+          proOptions={{
+            hideAttribution: true,
+          }}
+          fitViewOptions={{
+            padding: 0.1,
+            includeHiddenNodes: false,
+            minZoom: 0.5,
+            maxZoom: 1.5,
+          }}
         >
           <BackgroundView />
           <ControlsView />
-          <VariablePanel />
+          <MiniMapView />
         </ReactFlow>
       </div>
-    </ReactFlowProvider>
+    </div>
 
   )
 }
-export default AIFlow
+function withProvider(Component: React.ComponentType<any>) {
+  return (props: any) => {
+    return (
+      <ReactFlowProvider>
+        <Component {...props} />
+      </ReactFlowProvider>
+    )
+  }
+}
+export default withProvider(AIFlow)

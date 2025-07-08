@@ -57,7 +57,7 @@ function VariablePanelContent({ setIsOpen }: { setIsOpen: (isOpen: boolean) => v
         damping: 25,
         duration: 0.3,
       }}
-      className="w-60 h-[80vh] border bg-sidebar rounded-lg shadow-lg p-0 relative"
+      className="w-80 h-[80vh] border bg-sidebar rounded-lg shadow-lg p-0 relative"
     >
       <CloseButton className="absolute top-0 -right-10" onClick={() => setIsOpen(false)} />
       <Tabs defaultValue="nodes" className="items-center h-full ">
@@ -80,7 +80,7 @@ export function VariablePanel() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Panel position="top-left">
+    <div className="absolute top-2 left-2 z-10">
       <AnimatePresence mode="wait">
         {isOpen
           ? (
@@ -90,6 +90,6 @@ export function VariablePanel() {
               <ExpandButton isOpen={isOpen} setIsOpen={setIsOpen} />
             )}
       </AnimatePresence>
-    </Panel>
+    </div>
   )
 }

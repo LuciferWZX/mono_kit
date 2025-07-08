@@ -10,9 +10,9 @@ export function CloseButton(props: CloseButtonProps) {
   const { className, ...rest } = props
   return (
     <Button
-      variant="secondary"
+      variant="default"
       size="icon"
-      className={cn('absolute ', className)}
+      className={cn('absolute rounded-full', className)}
       {...rest}
     >
       <XIcon className="w-4 h-4" />

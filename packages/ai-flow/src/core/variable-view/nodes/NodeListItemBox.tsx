@@ -1,4 +1,7 @@
 import type { NodeListItem } from '../../../store/useNodeStore'
+import { Avatar, AvatarFallback, AvatarImage } from '@mono-kit/ui/base/avatar'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@mono-kit/ui/base/tooltip'
+import { Info } from '@mono-kit/ui/icon/lucide'
 import { useRef } from 'react'
 
 interface NodeListItemProps {
@@ -41,11 +44,25 @@ export function NodeListItemBox(props: NodeListItemProps) {
   return (
     <div
       ref={dragRef}
-      className="p-2 border bg-card rounded-md select-none cursor-grab active:cursor-grabbing hover:bg-accent/50 transition-colors"
+      className="flex gap-1 p-2 border bg-card rounded-md select-none cursor-grab active:cursor-grabbing hover:bg-accent/50 transition-colors"
       draggable
       onDragStart={handleDragStart}
     >
-      {data.data.name}
+      <Avatar className="size-6 rounded-sm">
+        <AvatarImage src={data.data.icon} />
+        <AvatarFallback>
+          {data.data.name.charAt(0)}
+        </AvatarFallback>
+      </Avatar>
+      <div className="flex gap-1 items-start">
+        <label>{data.data.name}</label>
+        <Tooltip>
+          <TooltipTrigger>
+            <Info size={14} />
+          </TooltipTrigger>
+          <TooltipContent>{data.data.description}</TooltipContent>
+        </Tooltip>
+      </div>
     </div>
   )
 }
