@@ -9,7 +9,19 @@ interface NodeDecorationProps extends ComponentProps<'div'> {
 }
 export const NodeDecoration = memo((props: NodeDecorationProps) => {
   const { className, nodeProps, ...rest } = props
-  return <div className={cn('p-2 rounded-md', className)} {...rest} />
+
+  return (
+    <div
+      className={cn(
+        'p-2 border rounded-md bg-card min-w-40 min-h-40',
+        {
+          'border-primary': nodeProps.selected,
+        },
+        className,
+      )}
+      {...rest}
+    />
+  )
 }, (prev, next) => {
   const { positionAbsoluteX: _x, positionAbsoluteY: _y, ...restPrev } = prev.nodeProps
   const { positionAbsoluteX: _x2, positionAbsoluteY: _y2, ...restNext } = next.nodeProps

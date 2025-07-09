@@ -1,8 +1,10 @@
 import { NodeEnumType } from '../../types'
+import TurboEdge from './edges/TurboEdge'
 import LLMNode from './llm'
 
-const NODE_TYPES = {
+export const NODE_TYPES = {
   [NodeEnumType.LLM]: LLMNode,
 }
-
-export default NODE_TYPES
+export const NODE_EDGES = {
+  turbo: TurboEdge,
+}

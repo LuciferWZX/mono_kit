@@ -1,21 +1,22 @@
 import type { ComponentProps } from 'react'
+import type { LLMNodeType } from '../../../types/llm'
 import { isEqual } from '@mono-kit/lib'
 import { Handle, Position } from '@xyflow/react'
 import { memo } from 'react'
-import type { LLMNodeType } from '../../../types/llm'
+import { NodeHandle } from '../../../components'
 
 interface LLMContentProps extends ComponentProps<'div'> {
   nodeData: LLMNodeType
 }
 export const LLMContent = memo((props: LLMContentProps) => {
-  const { nodeData } = props
+  const { nodeData, id } = props
   console.warn('[LLM:nodeData]', nodeData)
 
   return (
     <div>
       LLMContent
-      <Handle type="target" position={Position.Top} />
-      <Handle type="source" position={Position.Bottom} />
+      <NodeHandle id={`${id}-target`} type="target" position={Position.Left} />
+      <NodeHandle id={`${id}-source`} type="source" position={Position.Right} />
     </div>
   )
 }, (prev, next) => {

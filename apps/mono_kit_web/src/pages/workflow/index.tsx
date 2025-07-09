@@ -6,7 +6,7 @@ function WorkflowPage() {
   console.warn('theme', theme)
   return (
     <div className="h-screen w-screen">
-      <AIFlow theme={theme === 'system' ? 'light' : theme} />
+      <AIFlow theme={theme} />
     </div>
   )
 }

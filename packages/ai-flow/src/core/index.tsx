@@ -1,12 +1,15 @@
+import type { Edge, IsValidConnection } from '@xyflow/react'
 import { cn } from '@mono-kit/ui/lib/utils'
 import { ReactFlow, ReactFlowProvider } from '@xyflow/react'
+import { Line } from '../components'
+import { useCore } from '../hooks/useCore'
 import { useDrop } from '../hooks/useDrop'
 import { useAIFlowStore } from '../store/useAIFlowStore'
 import { BackgroundView } from './config-view/BackgroundView'
 import { ControlsView } from './config-view/ControlsView'
 import MiniMapView from './config-view/MiniMapView'
 import { FlowHeader } from './flow-header'
-import NODE_TYPES from './nodes'
+import { NODE_EDGES, NODE_TYPES } from './nodes'
 import { VariablePanel } from './variable-view/VariablePanel'
 import '@xyflow/react/dist/style.css'
 import '@mono-kit/ui/styles/globals.css'
@@ -24,7 +27,7 @@ function AIFlow(props: AIFlowProps) {
   const { className, theme, classes } = props
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useAIFlowStore()
   const { handleDrop, handleDragOver } = useDrop()
-
+  const { isValidConnection } = useCore()
   return (
     <div className={cn('flex flex-col size-full', className)}>
 
@@ -33,7 +36,13 @@ function AIFlow(props: AIFlowProps) {
         <VariablePanel />
         <ReactFlow
           nodeTypes={NODE_TYPES}
+          edgeTypes={NODE_EDGES}
           onDrop={handleDrop}
+          isValidConnection={isValidConnection as IsValidConnection<Edge>}
+          defaultEdgeOptions={{
+            type: 'turbo',
+
+          }}
           onDragOver={handleDragOver}
           className={cn('', classes?.container)}
           colorMode={theme}
@@ -52,6 +61,7 @@ function AIFlow(props: AIFlowProps) {
             maxZoom: 1.5,
           }}
         >
+          <Line />
           <BackgroundView />
           <ControlsView />
           <MiniMapView />
