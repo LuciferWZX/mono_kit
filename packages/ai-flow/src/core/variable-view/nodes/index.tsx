@@ -8,7 +8,7 @@ export function NodesListContent() {
   return (
     <ScrollArea type="always" className="h-full px-2">
       <div className="h-[1900px]">
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 p-1">
           {nodeList.map(item => (
             <NodeListItemBox key={item.data.id} data={item} />
           ))}

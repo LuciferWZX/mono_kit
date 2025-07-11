@@ -2,6 +2,7 @@ import type { NodeListItem } from '../../../store/useNodeStore'
 import { Avatar, AvatarFallback, AvatarImage } from '@mono-kit/ui/base/avatar'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@mono-kit/ui/base/tooltip'
 import { Info } from '@mono-kit/ui/icon/lucide'
+import { motion } from 'motion/react'
 import { useRef } from 'react'
 
 interface NodeListItemProps {
@@ -42,11 +43,19 @@ export function NodeListItemBox(props: NodeListItemProps) {
   }
 
   return (
-    <div
+    <motion.div
       ref={dragRef}
       className="flex gap-1 p-2 border bg-card rounded-md select-none cursor-grab active:cursor-grabbing hover:bg-accent/50 transition-colors"
       draggable
-      onDragStart={handleDragStart}
+      onDragStart={handleDragStart as any}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.2 },
+      }}
+      whileTap={{
+        scale: 0.95,
+        transition: { duration: 0.1 },
+      }}
     >
       <Avatar className="size-6 rounded-sm">
         <AvatarImage src={data.data.icon} />
@@ -63,6 +72,6 @@ export function NodeListItemBox(props: NodeListItemProps) {
           <TooltipContent>{data.data.description}</TooltipContent>
         </Tooltip>
       </div>
-    </div>
+    </motion.div>
   )
 }

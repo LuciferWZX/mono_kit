@@ -6,6 +6,9 @@
 @source "../**/*.{ts,tsx}";
 @custom-variant dark (&:is(.dark *));
 
+.react-flow{
+  --xy-edge-stroke-selected: var(--primary);
+}
 .react-flow__handle{
     @apply border-none bg-secondary-primary hover:bg-primary transition-colors duration-200;
 }
@@ -19,4 +22,7 @@
   }
 .react-flow__handle.valid,.is_connected {
    @apply bg-green-500;
+}
+.react-flow__edge.selected .react-flow__edge-path{
+  stroke: var(--xy-edge-stroke-selected, var(--xy-edge-stroke-selected-default));
 }

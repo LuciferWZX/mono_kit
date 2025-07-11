@@ -8,6 +8,8 @@ export interface LLMFormData {
   frequency_penalty: number // 频率惩罚
   presence_penalty: number // 存在惩罚
 }
-export interface LLMNodeType extends BaseNodeType<NodeEnumType.LLM, LLMFormData>,Record<string, unknown> {
+export interface LLMNodeType extends BaseNodeType<NodeEnumType.LLM, LLMFormData>, Record<string, unknown> {
   type: NodeEnumType.LLM
 }
+
+export type FlowNodeType = LLMNodeType

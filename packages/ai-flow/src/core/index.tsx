@@ -41,7 +41,6 @@ function AIFlow(props: AIFlowProps) {
           isValidConnection={isValidConnection as IsValidConnection<Edge>}
           defaultEdgeOptions={{
             type: 'turbo',
-
           }}
           onDragOver={handleDragOver}
           className={cn('', classes?.container)}
