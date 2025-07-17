@@ -1,9 +1,9 @@
 import { Button } from '@mono-kit/ui/base/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@mono-kit/ui/base/tabs'
 import { Menu } from '@mono-kit/ui/icon/lucide'
-import { Panel } from '@xyflow/react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useState } from 'react'
+import { memo, useState } from 'react'
+import { useNodeStore } from '../../store/useNodeStore'
 import { CloseButton } from './CloseButton'
 import { NodesListContent } from './nodes'
 
@@ -45,6 +45,7 @@ function VariablePanelContent({ setIsOpen }: { setIsOpen: (isOpen: boolean) => v
       content: <div>variables</div>,
     },
   ]
+
   return (
     <motion.div
       key="panel"
@@ -76,11 +77,25 @@ function VariablePanelContent({ setIsOpen }: { setIsOpen: (isOpen: boolean) => v
   )
 }
 
-export function VariablePanel() {
+export const VariablePanel = memo(() => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const needHidden = useNodeStore(state => state.isNodeMoving)
   return (
-    <div className="absolute top-2 left-2 z-10">
+    <motion.div
+      className="absolute top-2 left-2 z-10"
+      animate={{
+        opacity: needHidden ? 0 : 1,
+        scale: needHidden ? 0.8 : 1,
+        y: needHidden ? -10 : 0,
+      }}
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 25,
+        duration: 0.3,
+      }}
+      style={{ pointerEvents: needHidden ? 'none' : 'auto' }}
+    >
       <AnimatePresence mode="wait">
         {isOpen
           ? (
@@ -90,6 +105,6 @@ export function VariablePanel() {
               <ExpandButton isOpen={isOpen} setIsOpen={setIsOpen} />
             )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
-}
+})

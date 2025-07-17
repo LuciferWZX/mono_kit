@@ -4,7 +4,7 @@ import type { ComponentProps } from 'react'
 import { isEqual } from '@mono-kit/lib'
 import { cn } from '@mono-kit/ui/lib/utils'
 import { memo } from 'react'
-import { NodeDecorationHeader } from './header'
+// import { NodeDecorationHeader } from './header'
 
 interface NodeDecorationProps extends ComponentProps<'div'> {
   nodeProps: NodeProps<Node<FlowNodeType>>
@@ -22,7 +22,7 @@ export const NodeDecoration = memo((props: NodeDecorationProps) => {
       )}
       {...rest}
     >
-      <NodeDecorationHeader icon={nodeProps.data.icon} title={nodeProps.data.name} />
+      {/*<NodeDecorationHeader icon={nodeProps.data.icon} title={nodeProps.data.name} />*/}
       {children}
     </div>
   )

@@ -8,4 +8,9 @@ export default antfu({
   //   level: 'warn',
   // },
   regexp: false,
+  typescript: {
+    overrides: {
+      '@typescript-eslint/no-enum': 'off',
+    },
+  },
 })

@@ -5,6 +5,7 @@ import { Line } from '../components'
 import { useCore } from '../hooks/useCore'
 import { useDrop } from '../hooks/useDrop'
 import { useAIFlowStore } from '../store/useAIFlowStore'
+import { useBaseUseNodeStore } from '../store/useNodeStore'
 import { BackgroundView } from './config-view/BackgroundView'
 import { ControlsView } from './config-view/ControlsView'
 import MiniMapView from './config-view/MiniMapView'
@@ -42,6 +43,8 @@ function AIFlow(props: AIFlowProps) {
           defaultEdgeOptions={{
             type: 'turbo',
           }}
+          onNodeDragStart={() => useBaseUseNodeStore.setState({ isNodeMoving: true })}
+          onNodeDragStop={() => useBaseUseNodeStore.setState({ isNodeMoving: false })}
           onDragOver={handleDragOver}
           className={cn('', classes?.container)}
           colorMode={theme}

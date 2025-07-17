@@ -1,4 +1,5 @@
 import type { BaseNodeType } from '../types'
+import type { BranchNodeType } from '../types/branch'
 import type { LLMNodeType } from '../types/llm'
 import { create } from 'zustand'
 import { useShallow } from 'zustand/shallow'
@@ -12,6 +13,7 @@ export interface NodeListItem {
 
 interface NodeStoreState {
   nodeList: NodeListItem[]
+  isNodeMoving: boolean
 }
 const initialState: NodeStoreState = {
   nodeList: [
@@ -33,7 +35,21 @@ const initialState: NodeStoreState = {
         },
       } as LLMNodeType,
     },
+    {
+      id: 2,
+      data: {
+        id: '0002',
+        icon: 'https://picsum.photos/200/300',
+        description: '分支节点，用于根据条件判断执行不同的分支',
+        name: '分支',
+        type: NodeEnumType.BRANCH,
+        formData: {
+          branches: [],
+        },
+      } as BranchNodeType,
+    },
   ],
+  isNodeMoving: false,
 }
 export const useBaseUseNodeStore = create<NodeStoreState>(() => {
   return {
