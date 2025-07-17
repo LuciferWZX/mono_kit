@@ -1,6 +1,4 @@
-import type { T } from 'node_modules/tailwindcss/dist/types-B254mqw1.d.mts'
 import type { BaseNodeType, NodeEnumType } from './index'
-import type { FlowVariable } from './variable'
 
 export enum BranchOperator {
   EQUAL = '=', // 等于

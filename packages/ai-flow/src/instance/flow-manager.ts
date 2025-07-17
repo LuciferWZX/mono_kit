@@ -20,20 +20,34 @@ export class FlowManager {
   }
 
   static generateNode = (baseNode: BaseNodeType, position: XYPosition): Node | null => {
-    return match(baseNode).with({ type: NodeEnumType.LLM }, (llmNode) => {
-      const { formData, type, ...rest } = llmNode
-      return {
-        id: nanoid(8),
-        position,
-        type,
-        data: {
-          ...rest,
-          formData,
-        },
-      }
-    }).otherwise(() => {
-      console.warn('unsupported node type', baseNode)
-      return null
-    })
+    return match(baseNode)
+      .with({ type: NodeEnumType.LLM }, (llmNode) => {
+        const { formData, type, ...rest } = llmNode
+        return {
+          id: nanoid(8),
+          position,
+          type,
+          data: {
+            ...rest,
+            formData,
+          },
+        }
+      })
+      .with({ type: NodeEnumType.BRANCH }, (branchNode) => {
+        const { formData, type, ...rest } = branchNode
+        return {
+          id: nanoid(8),
+          position,
+          type,
+          data: {
+            ...rest,
+            formData,
+          },
+        }
+      })
+      .otherwise(() => {
+        console.warn('unsupported node type', baseNode)
+        return null
+      })
   }
 }
